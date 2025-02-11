@@ -11,14 +11,14 @@ export default function ThankYou() {
           Thank You!
         </h2>
         <p className="mt-2 text-center text-sm text-gray-600">
-          Your files have been uploaded successfully.
+        Selamat, file sudah terkirim, saat ini sedang di proses oleh tim kami, Selamat menunggu paket cute nya ya!!!
         </p>
         <div className="mt-6 text-center">
           <Link
             to="/"
             className="text-indigo-600 hover:text-indigo-500"
           >
-            Return to Upload Page
+            Kembali
           </Link>
         </div>
       </div>

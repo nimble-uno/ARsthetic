@@ -20,7 +20,7 @@ export default function CustomerUpload() {
     
     const validVideos = files.filter(file => {
       if (file.size > MAX_VIDEO_SIZE) {
-        toast.error(`Video "${file.name}" exceeds 3MB size limit`, {
+        toast.error(`Video "${file.name}" melebihi limit 3MB.`, {
           duration: 4000,
           icon: '⚠️'
         });
@@ -43,7 +43,7 @@ export default function CustomerUpload() {
     if (loading) return;
 
     if (images.length === 0 && videos.length === 0) {
-      toast.error('Please upload at least one image or video');
+      toast.error('Harus upload minimal 1 video dan gambar!');
       return;
     }
 
@@ -59,7 +59,7 @@ export default function CustomerUpload() {
       if (queryError) throw queryError;
 
       if (existingOrders && existingOrders.length > 0) {
-        toast.error('This order ID has already been used');
+        toast.error('Order ID ini sudah melakukan konfirmasi.');
         return;
       }
 
@@ -114,9 +114,9 @@ export default function CustomerUpload() {
               className="h-40 w-auto"
             />
           </div>
-          <h2 className="mt-6 text-3xl font-bold text-gray-900">Upload Files</h2>
+          <h2 className="mt-6 text-3xl font-bold text-gray-900">Order Confirmation</h2>
           <p className="mt-2 text-sm text-gray-600">
-            Please enter your order ID and upload your files
+            Masukkan Order ID anda dan upload file yang anda inginkan
           </p>
         </div>
 
@@ -143,7 +143,7 @@ export default function CustomerUpload() {
               <div className="flex items-center gap-2 mb-3">
                 <ImageIcon className="h-5 w-5 text-indigo-600" />
                 <label className="block text-sm font-medium text-gray-700">
-                  Upload Images
+                  Upload Gambar
                 </label>
               </div>
               <input
@@ -167,7 +167,7 @@ export default function CustomerUpload() {
               <div className="flex items-center gap-2 mb-3">
                 <Video className="h-5 w-5 text-indigo-600" />
                 <label className="block text-sm font-medium text-gray-700">
-                  Upload Videos
+                  Upload Video
                 </label>
               </div>
               <input
@@ -177,7 +177,7 @@ export default function CustomerUpload() {
                 onChange={handleVideoChange}
                 className="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-600 hover:file:bg-indigo-100"
               />
-              <p className="mt-0.5 text-xs text-gray-400 italic">Max video size: 3MB per video</p>
+              <p className="mt-0.5 text-xs text-gray-400 italic">Max. ukuran video : 3MB per video</p>
               {videos.length > 0 && (
                 <p className="mt-2 text-sm text-gray-600">
                   {videos.length} video{videos.length === 1 ? '' : 's'} selected
@@ -199,7 +199,7 @@ export default function CustomerUpload() {
               className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
             />
             <p className="mt-0.5 text-xs text-gray-400 italic">
-              Contoh: Bernadya - Bulan
+              Contoh : Bernadya - Satu Bulan
             </p>
           </div>
 
@@ -208,7 +208,7 @@ export default function CustomerUpload() {
             disabled={loading}
             className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:opacity-50"
           >
-            {loading ? 'Uploading...' : 'Upload Files'}
+            {loading ? 'Uploading...' : 'Konfirmasi'}
           </button>
         </form>
       </div>
